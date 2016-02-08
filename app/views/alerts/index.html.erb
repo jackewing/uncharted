@@ -1,0 +1,32 @@
+ <a data-toggle="modal" id="click_alert" href="#normalModal" class="btn btn-default">Alert</a>
+  <div id="normalModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background: red; color: white">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">EWS ALERT</h4>
+        </div>
+        <div class="modal-body">
+          <% if @patient.observation_sets.last.ews > 5 %>
+          The Early Warning Score indicated by the current readings suggests that an alert should be sent. Click send Alert to do so. 
+          <% else %>
+          While the current Early Warning Score is not critical. Please send an alert if you are worried about the patient for any reason.
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Attention not required</button>
+          <button type="button" class="btn btn-primary" style="background-color: red">Send Alert</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+  <script>
+	  $( "#click_alert" ).click();
+    $(".modal-wide").on("show.bs.modal", function() {
+      var height = $(window).height() - 200;
+      $(this).find(".modal-body").css("max-height", height);
+    });
+  </script>
+</div>

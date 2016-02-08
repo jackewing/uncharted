@@ -1,0 +1,100 @@
+<h1>Patient <%=@patient.name%> </h1>
+<%= form_for @observation_set, url: {action: "create"}, html: { multipart: true, class: "form-horizontal" } do |f|  %>
+  <div class="row"> 
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <div class="form-group input-group">
+        <%= f.label :respiratory_rate, class: "control-label input-group-addon"%>
+        <%= f.text_field :respiratory_rate, class: "form-control"%>
+      </div>
+      <%=f.hidden_field :patient_id, :value => @patient.id%>
+      <div class="form-group input-group">
+        <%= f.label :supplemental_o2, class: "control-label input-group-addon"%>
+        <%= f.text_field :supplemental_o2, class: "form-control"%>
+      </div>
+      <div class="form-group input-group">
+        <%= f.label :o2_saturation, class: "control-label input-group-addon"%>
+        <%= f.text_field :o2_saturation, class: "form-control"%>
+      </div>
+      <div class="form-group input-group">
+        <%= f.label :temperature, class: "control-label input-group-addon"%>
+        <%= f.text_field :temperature, class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <div class="fieldset">
+        <div class="form-group input-group">
+          <%= f.label :blood_pressure_max, class: "control-label input-group-addon"%>        
+          <%= f.text_field :blood_pressure_max, class: "form-control"%>
+        </div>
+        <div class="form-group input-group">
+        <%= f.label :blood_pressure_min, class: "control-label input-group-addon"%>
+        
+        <%= f.text_field :blood_pressure_min, class: "form-control"%>
+        </div>
+        <div class="form-group input-group">
+          <%= f.label :blood_pressure_comment,"Comment", class: "control-label input-group-addon"%>
+          <%= f.text_field :blood_pressure_comment, class: "form-control"%>
+        </div>
+      </div>
+      
+      <div class="form-group input-group">
+        <%= f.label :heart_rate, class: "control-label input-group-addon"%>
+        <%= f.text_field :heart_rate, class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      
+      <div class="form-group input-group">
+        <%= f.label :pain_level, class: "control-label input-group-addon"%>
+        <%= f.text_field :pain_level, class: "form-control"%>
+      </div>
+      <div class="form-group input-group">
+        <%= select_tag(:level_of_consciousness, options_for_select([['Alert','Alert'], ['Voice/Pain', 'Voice/Pain'], ['Unresponsive', 'Unresponsive']])) %>
+      </div>
+      <div class="form-group input-group">
+        <%= check_box_tag(:urine_output_greater_than_1000ml) %>
+        <%= label_tag(:pet_dog, "Urine output is greater than 1000 mls in 4 hours") %>   
+      </div>       
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-5"></div>
+      <div class="col-md-2">
+        <%= f.submit "Submit observations", class: "btn btn-success btn-block"  %>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
+  </div>
+<% end %>
+<div id="normalModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background: red; color: white">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">EWS ALERT</h4>
+      </div>
+      <div class="modal-body">
+        The Early Warning Score indicated by the current readings suggests that an alert should be sent. Click send Alert to do so. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Attention not required</button>
+        <button type="button" class="btn btn-primary">Send Alert</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+  <script>
+    $("#level_of_consciousness").change(function() {
+      console.log("text here")
+      if($( "#level_of_consciousness option:selected" ).value == "Unresponsive" )
+      { 
+        var height = $(window).height() - 200;
+        $(this).find(".modal-body").css("max-height", height);
+      }
+    });
+  </script>
