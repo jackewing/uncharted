@@ -1,48 +1,53 @@
-Uncharted
-================
+# Uncharted
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+This README outlines the details of collaborating on this Ember application.
+A short introduction of this app could easily go here.
 
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
+## Prerequisites
 
-Problems? Issues?
------------
+You will need the following things properly installed on your computer.
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+* [Git](http://git-scm.com/)
+* [Node.js](http://nodejs.org/) (with NPM)
+* [Bower](http://bower.io/)
+* [Ember CLI](http://www.ember-cli.com/)
+* [PhantomJS](http://phantomjs.org/)
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
+## Installation
 
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+* `git clone <repository-url>` this repository
+* change into the new directory
+* `npm install`
+* `bower install`
 
-Ruby on Rails
--------------
+## Running / Development
 
-This application requires:
+* `ember server`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
-- Ruby 2.2.3
-- Rails 4.2.4
+### Code Generators
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+Make use of the many generators for code, try `ember help generate` for more details
 
-Getting Started
----------------
+### Running Tests
 
-Documentation and Support
--------------------------
+* `ember test`
+* `ember test --server`
 
-Issues
--------------
+### Building
 
-Similar Projects
-----------------
+* `ember build` (development)
+* `ember build --environment production` (production)
 
-Contributing
-------------
+### Deploying
 
-Credits
--------
+Specify what it takes to deploy your app.
 
-License
--------
+## Further Reading / Useful Links
+
+* [ember.js](http://emberjs.com/)
+* [ember-cli](http://www.ember-cli.com/)
+* Development Browser Extensions
+  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
